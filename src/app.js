@@ -10,6 +10,8 @@ console.log(path.join(__dirname, '../public'))
 //console.log(__filename)
 
 const app = express()
+// for heroku or localhost
+const port = process.env.PORT || 3000
 
 // define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -128,6 +130,7 @@ app.get('*', (req, res) => {
 
 // app.com
 // app.com/help
-app.listen(3000, () => {
-    console.log('Server is up!')
+
+app.listen(port, () => {
+    console.log('Server is up! ' + port)
 })
